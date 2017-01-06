@@ -1,4 +1,4 @@
-package com.emiliorodo.ad.dao
+package com.emiliorodo.ad.service
 
 import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
@@ -10,7 +10,10 @@ import scala.concurrent.{ExecutionContext, Future}
 
 class DummyService {
 
-  def getAkkaWebPageAsString(implicit actorMaterializer: ActorMaterializer, actorSystem: ActorSystem, ec: ExecutionContext): Future[String] = 
+  def getAkkaWebPageAsString(implicit 
+                             actorMaterializer: ActorMaterializer, 
+                             actorSystem: ActorSystem, 
+                             ec: ExecutionContext): Future[String] = 
     for {
       response <- Http().singleRequest(HttpRequest(uri = "http://akka.io"))
       responseBody <- response.entity.dataBytes.runFold(ByteString(""))(_ ++ _)

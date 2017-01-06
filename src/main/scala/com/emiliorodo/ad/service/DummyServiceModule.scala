@@ -1,4 +1,4 @@
-package com.emiliorodo.ad.dao
+package com.emiliorodo.ad.service
 
 import com.emiliorodo.ad.AkkaDependenciesModule
 

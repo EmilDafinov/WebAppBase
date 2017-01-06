@@ -2,7 +2,7 @@ package com.emiliorodo.ad
 
 import akka.http.scaladsl.Http
 import com.emiliorodo.ad.configuration.ApplicationConfigurationModule
-import com.emiliorodo.ad.dao.DummyServiceModule
+import com.emiliorodo.ad.service.DummyServiceModule
 import com.emiliorodo.ad.server._
 import com.typesafe.scalalogging.StrictLogging
 
@@ -22,8 +22,8 @@ object Main extends App
   with StrictLogging
   with ApplicationContext {
 
-  lazy val serverInterface = config.getString("http.server.interface")
-  lazy val serverPort = config.getInt("http.server.port")
+  val serverInterface = config.getString("http.server.interface")
+  val serverPort = config.getInt("http.server.port")
 
   Http()
     .bindAndHandle(

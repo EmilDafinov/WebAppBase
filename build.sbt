@@ -24,7 +24,6 @@ lazy val webAppBase = (project in file("."))
       "com.typesafe.scala-logging" %% "scala-logging" % "3.4.0",
       "com.typesafe.akka" %% "akka-actor" % AKKA_VERSION,
       
-      
       "com.typesafe.akka" %% "akka-http-core" % AKKA_VERSION,
       "com.typesafe.akka" %% "akka-http-testkit" % AKKA_VERSION,
       "com.typesafe.akka" %% "akka-slf4j" % AKKA_VERSION,
@@ -43,6 +42,7 @@ lazy val webAppBase = (project in file("."))
     ),
 
     maintainer in Docker := "Emil Dafinov <emil.dafinov@gmail.com>",
+
     javaOptions in Universal ++= Seq(
       //Set the url for the application configuration
       "-Dconfig.url=http://consul:8500/v1/kv/web/dev/config?raw"
